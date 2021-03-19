@@ -40,7 +40,7 @@ django-auth-ldap==1.2.8
 pyexcel-ods3==0.3.0
 reportlab==3.3.0
 pylabels==1.2.1
-djangorestframework==3.6.2
+djangorestframework==3.11.2
 django-filter==1.0.2
 django-widget-tweaks==1.4.1
 PyJWT==1.4.0
