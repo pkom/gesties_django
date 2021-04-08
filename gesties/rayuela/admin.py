@@ -214,11 +214,14 @@ def import_data(modeladmin, request, queryset):
                     pass
 
                 alumno, created = Alumno.objects.update_or_create(nie=self.nie, defaults=updated_values)
-                if self.nombrefichero:
-                    ficherofoto = os.path.join(self.dirname, self.nombrefichero)
-                    myfile = File(open(ficherofoto, 'rb'))
-                    alumno.foto.save(self.nombrefichero, myfile)
-                    myfile.close()
+                try:
+                    if self.nombrefichero:
+                        ficherofoto = os.path.join(self.dirname, self.nombrefichero)
+                        myfile = File(open(ficherofoto, 'rb'))
+                        alumno.foto.save(self.nombrefichero, myfile)
+                        myfile.close()
+                except:
+                    pass
                 self.resultado += u'<ul>Procesando alumno %s' % (alumno)
                 if created:
                     self.resultado += u'<li>Se ha creado el alumno %s</li>' % (alumno)
